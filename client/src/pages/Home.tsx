@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { InstagramOutlined, FacebookOutlined } from '@ant-design/icons';
+import { BookOutlined } from '@ant-design/icons';
 
 const featuredEvents = [
   {
@@ -210,6 +212,57 @@ const Home: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Social Media Links */}
+      <div className="bg-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center space-x-8">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center transition-all duration-300"
+            >
+              <div className="p-4 rounded-full bg-gray-100 group-hover:bg-primary-50 group-hover:shadow-lg transition-all duration-300">
+                <InstagramOutlined className="text-3xl text-gray-600 group-hover:text-primary-600" />
+              </div>
+              <span className="mt-2 text-sm text-gray-600 group-hover:text-primary-600">Instagram</span>
+            </a>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center transition-all duration-300"
+            >
+              <div className="p-4 rounded-full bg-gray-100 group-hover:bg-primary-50 group-hover:shadow-lg transition-all duration-300">
+                <FacebookOutlined className="text-3xl text-gray-600 group-hover:text-primary-600" />
+              </div>
+              <span className="mt-2 text-sm text-gray-600 group-hover:text-primary-600">Facebook</span>
+            </a>
+            <a
+              href="https://www.xiaohongshu.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center transition-all duration-300"
+            >
+              <div className="p-4 rounded-full bg-gray-100 group-hover:bg-primary-50 group-hover:shadow-lg transition-all duration-300">
+                <BookOutlined className="text-3xl text-gray-600 group-hover:text-primary-600" />
+              </div>
+              <span className="mt-2 text-sm text-gray-600 group-hover:text-primary-600">小红书</span>
+            </a>
+          </div>
+          
+          {/* Brand Statement */}
+          <div className="mt-12 text-center border-t border-gray-200 pt-8">
+            <p className="text-sm text-gray-500">
+              雪山飞狐 Snow Fox 户外俱乐部 2023-2025
+            </p>
+            <p className="mt-1 text-xs text-gray-400">
+              All rights reserved.
+            </p>
           </div>
         </div>
       </div>

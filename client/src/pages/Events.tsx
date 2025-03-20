@@ -34,7 +34,13 @@ const events = [
   },
 ];
 
-const categories = ['全部', '滑雪', '登山', '摄影', '徒步'];
+const categories = [
+  { id: 'all', name: '全部' },
+  { id: 'ski', name: '滑雪' },
+  { id: 'hiking', name: '登山' },
+  { id: 'photo', name: '摄影' },
+  { id: 'bbq', name: '烧烤' },
+];
 
 const Events: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('全部');
@@ -59,15 +65,15 @@ const Events: React.FC = () => {
         <div className="mt-8 flex justify-center space-x-4">
           {categories.map((category) => (
             <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
+              key={category.id}
+              onClick={() => setSelectedCategory(category.name)}
               className={`px-4 py-2 rounded-full text-sm font-medium ${
-                selectedCategory === category
+                selectedCategory === category.name
                   ? 'bg-primary-600 text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-50'
               }`}
             >
-              {category}
+              {category.name}
             </button>
           ))}
         </div>
