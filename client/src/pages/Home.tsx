@@ -70,11 +70,12 @@ const Home: React.FC = () => {
               <div className="mt-10 px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 lg:w-1/2">
                 <div className="sm:text-left lg:text-left">
                   <h1 className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
-                    <div className="flex items-center">
+                    <span className="block text-gray-900">探索户外</span>
+                    <div className="flex items-center mt-2">
                       <span className="text-gray-900">与</span>
                       <span className="text-primary-600 ml-2">Snow Fox</span>
+                      <span className="text-gray-900 ml-2">同行</span>
                     </div>
-                    <span className="block text-gray-900">一起探索户外</span>
                   </h1>
                   <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl">
                     加入我们，开启您的户外冒险之旅。无论是滑雪、登山还是摄影，我们都有专业的活动等着您。
@@ -181,17 +182,17 @@ const Home: React.FC = () => {
             {featuredEvents.map((event) => (
               <div
                 key={event.id}
-                className="bg-white overflow-hidden shadow rounded-lg"
+                className="bg-white overflow-hidden shadow rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
               >
-                <div className="relative pb-48">
+                <div className="relative pb-48 overflow-hidden">
                   <img
-                    className="absolute h-full w-full object-cover"
+                    className="absolute h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                     src={event.image}
                     alt={event.title}
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-medium text-gray-900">
+                  <h3 className="text-lg font-medium text-gray-900 group-hover:text-primary-600 transition-colors duration-300">
                     {event.title}
                   </h3>
                   <p className="mt-2 text-sm text-gray-500">
@@ -200,9 +201,10 @@ const Home: React.FC = () => {
                   <div className="mt-4">
                     <Link
                       to={`/events/${event.id}`}
-                      className="text-sm font-medium text-primary-600 hover:text-primary-500"
+                      className="text-sm font-medium text-primary-600 hover:text-primary-500 transition-colors duration-300 flex items-center"
                     >
-                      了解更多 →
+                      了解更多 
+                      <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </Link>
                   </div>
                 </div>

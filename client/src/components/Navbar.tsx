@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
@@ -11,6 +11,7 @@ const navigation = [
 
 const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <header className="bg-white shadow">
@@ -31,7 +32,20 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="inline-flex items-center px-4 pt-1 text-xl font-medium text-gray-900 hover:text-primary-600"
+                  className={`
+                    relative inline-flex items-center px-4 pt-1 text-xl font-medium
+                    transition-all duration-300
+                    before:absolute before:bottom-0 before:left-0 before:h-[2px] 
+                    before:bg-primary-600 before:transition-all before:duration-300
+                    hover:text-primary-600
+                    after:absolute after:inset-0 after:rounded-lg after:ring-2 after:ring-primary-400 
+                    after:ring-opacity-0 after:transition-all hover:after:ring-opacity-50
+                    hover:after:shadow-[0_0_10px_rgba(59,130,246,0.3)]
+                    ${location.pathname === item.href ? 
+                      'text-primary-600 before:w-full' : 
+                      'text-gray-900 before:w-0'
+                    }
+                  `}
                 >
                   {item.name}
                 </Link>
@@ -41,13 +55,13 @@ const Navbar: React.FC = () => {
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
             <Link
               to="/login"
-              className="btn btn-secondary mr-6 text-lg px-8 py-3"
+              className="btn btn-secondary mr-6 text-lg px-8 py-3 transition-all duration-300 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]"
             >
               登录
             </Link>
             <Link
               to="/register"
-              className="btn btn-primary text-lg px-8 py-3"
+              className="btn btn-primary text-lg px-8 py-3 transition-all duration-300 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]"
             >
               注册
             </Link>
